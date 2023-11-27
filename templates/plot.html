@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+    @media print {
+        img {
+            page-break-inside: avoid;
+            max-height: 95vh;
+            max-width: 100%;
+            width: auto;
+        }
+
+        h1 {
+            display: block !important;
+            page-break-before: always; /* Add a page break before each h1 element */
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+    }
+</style>
+
+
+<div class="container" style="padding-left:5%; padding-right: 5%; padding-top: 60px; padding-bottom: 60px;">
+    <img src="{{ url_for('static', filename='graphs.png') }}" alt="User Image" width="100%">
+</div>
+
+{% endblock %}

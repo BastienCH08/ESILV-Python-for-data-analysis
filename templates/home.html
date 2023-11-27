@@ -1,0 +1,57 @@
+<!-- templates/home.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+<link  rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+<script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script defer src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+
+<style>
+    /* Set max height for both x and y axes */
+    .scrollable-container {
+        max-height: 425px; /* Set your desired max height for y-axis */
+        overflow-y: auto;
+        max-width: 100%; /* Set your desired max width for x-axis */
+        overflow-x: auto;
+    }
+    /* Make font tinier */
+    .scrollable-container th,
+    .scrollable-container td {
+        font-size: 10px; /* Adjust the font size as needed */
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+    }
+</style>
+<div class="container" style="padding-left:5% ; padding-right: 5%; padding-top: 40px; padding-bottom: 70px;">
+    <div>
+        <div class="container mt-5">
+            <h2>Dataset</h2>
+            
+            <div class="scrollable-container">
+                <table id="example">
+                    <!-- Display the dataset -->
+                    {{ table_html | safe }}
+                </table>
+            </div>x
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#example').DataTable();
+    });
+</script>
+{% endblock %}
